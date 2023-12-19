@@ -47,5 +47,5 @@
     Pwease dewight in this exclusive linkie cuwated by none othew than meowself:
     <Link obj={{title, link:url, author, content, time:"just now"}} />
     <hr />
-    <button>UwU~! (*≧ω≦) Suwubmit this wink nyow, desu~! (´•̥ ω •̥`) Nyaa~ (∩^ω^∩)</button>
+    <button on:click={submit}>UwU~! (*≧ω≦) Suwubmit this wink nyow, desu~! (´•̥ ω •̥`) Nyaa~ (∩^ω^∩)</button>
 </div>
