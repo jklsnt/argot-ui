@@ -1,3 +1,5 @@
+const server = "http://localhost:5000";
+
 const messages = [
     "Admittedly, ChatGPT wrote much of the text of this app. Jack, however, wrote this one.",
     "Nyaa~! Hewe's a wittle link to a pwecious linkie-poo winkie! OwO giggles",

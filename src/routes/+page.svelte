@@ -1,6 +1,6 @@
 <script>
 
-    import {messages} from "$lib/constants.js";
+    import {messages, server} from "$lib/constants.js";
 
 
     let message = messages[Math.floor(Math.random() * messages.length)];
@@ -8,7 +8,7 @@
     import Link from "$lib/components/link.svelte";
 
   async function fetchPosts() {
-	const response = await self.fetch("http://localhost:5000/posts")
+	  const response = await self.fetch(`${server}/posts`)
 	return response.json();	
   }
   let promise = fetchPosts();

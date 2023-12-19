@@ -1,6 +1,6 @@
 <script>
 
-    import {messages} from "$lib/constants.js";
+    import {messages, server} from "$lib/constants.js";
 
 
     let message = messages[Math.floor(Math.random() * messages.length)];
@@ -11,6 +11,15 @@
     let content = "";
 
     import Link from "$lib/components/link.svelte";
+
+    async function submit() {
+        await self.fetch(`${server}/post?title=${encodeURIComponent(title)}&link=${encodeURIComponent(url)}&author=${encodeURIComponent(author)}`,
+                         {method: "POST",
+                          headers: {
+                              "Content-Type": "text/plain",
+                          },
+                          body: content})
+    }
 </script>
 
 <div style="">
