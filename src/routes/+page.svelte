@@ -1,9 +1,7 @@
 <script>
-    let messages = [
-        "Nyaa~! Hewe's a wittle link to a pwecious linkie-poo winkie! OwO giggles",
-        "Uwaa~! This winkie-linkie is making my heart go doki-doki! (*≧ω≦)",
-        "Look at this adorable wittle linkie-winkie! (* ^ ω ^)",
-    ];
+
+    import {messages} from "$lib/constants.js";
+
 
     let message = messages[Math.floor(Math.random() * messages.length)];
 
@@ -48,7 +46,7 @@
 
     <hr />
 
-    <div style="display: flex; justify-content: space-between; align-items:center"><h2>winkie-linkies OwO</h2> <button style="max-height: 25px">UwU~! Suwubmit winky-wink!</button></div>
+    <div style="display: flex; justify-content: space-between; align-items:center"><h2>winkie-linkies OwO</h2> <button style="max-height: 25px; cursor: pointer" on:click={() => {window.location.href="/submit"}}>UwU~! Suwubmit winky-wink!</button></div>
 
     {#each links as link}
         <Link obj={link} />
