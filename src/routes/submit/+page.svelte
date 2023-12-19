@@ -18,7 +18,9 @@
                           headers: {
                               "Content-Type": "text/plain",
                           },
-                          body: content})
+                          body: content});
+        window.location.href = "/";
+        
     }
 </script>
 
