@@ -30,4 +30,4 @@ const messages = [
     "Nyaa~! Linkie cuteness overload—prepare for heart-melting! (⁄ ⁄>⁄ ▽ ⁄<⁄ ⁄)",
 ];
 
-export {messages};
+export {messages, server};
