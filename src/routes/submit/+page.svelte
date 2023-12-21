@@ -5,7 +5,6 @@
 
     let message = messages[Math.floor(Math.random() * messages.length)];
 
-    let author = "";
     let url = "";
     let title = "";
     let content = "";
@@ -13,13 +12,16 @@
     import Link from "$lib/components/link.svelte";
 
     async function submit() {
-        await self.fetch(`${server}/post?title=${encodeURIComponent(title)}&link=${encodeURIComponent(url)}&author=${encodeURIComponent(author)}`,
+        await self.fetch(`${server}/posts`,
                          {method: "POST",
                           headers: {
-                              "Content-Type": "text/plain",
-                              // 'Content-Type': 'application/json'
+                              'Content-Type': 'application/json'
                           },
-                          body: content});
+                          body: JSON.stringify({
+                              title: title,
+                              link: url,
+                              content: content,
+                          })});
         window.location.href = "/";
         
     }
@@ -34,7 +36,6 @@
     <ul>
         <li>URL (* ω): <input type="text" bind:value={url} /></li>
         <li>Titwe (*≧▽≦):: <input type="text" bind:value={title} /></li>
-        <li>Authow (*＾ω＾): <input type="text" bind:value={author} /></li>
         <li>Content (⁄ ⁄•⁄ω⁄•⁄ ⁄): <textarea bind:value={content}></textarea></li>
     </ul>
     <hr />
@@ -46,7 +47,7 @@
     <!-- {/each} -->
 
     Pwease dewight in this exclusive linkie cuwated by none othew than meowself:
-    <Link obj={{title, link:url, author, content, time:"just now"}} />
+    <Link obj={{title, link:url, author:"you", content, time:"just now"}} />
     <hr />
     <button on:click={submit}>UwU~! (*≧ω≦) Suwubmit this wink nyow, desu~! (´•̥ ω •̥`) Nyaa~ (∩^ω^∩)</button>
 </div>
