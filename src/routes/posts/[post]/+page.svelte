@@ -11,8 +11,10 @@
     let reply = "";
 
     async function fetchPost(postID) {
-        const response = await self.fetch(`${server}/posts/${postID}`)
-        return response.json();	
+      const response = await self.fetch(`${server}/posts/${postID}`)
+	  let blah = await response.json();
+	  console.log(blah);
+      return blah;	
     }
 
     async function submit(id) {
