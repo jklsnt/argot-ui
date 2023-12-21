@@ -20,6 +20,7 @@
     async function submit(id) {
         await self.fetch(`${server}/comments`,
                          {method: "POST",
+                          credentials: 'include',
                           headers: {
                               'Content-Type': 'application/json'
                           },

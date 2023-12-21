@@ -14,6 +14,7 @@
     async function submit() {
         await self.fetch(`${server}/posts`,
                          {method: "POST",
+                          credentials: 'include',
                           headers: {
                               'Content-Type': 'application/json'
                           },
