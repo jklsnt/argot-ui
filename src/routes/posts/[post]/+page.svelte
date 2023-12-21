@@ -42,7 +42,7 @@
         <Link obj={link} />
 
         <div><textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0"></textarea></div>
-        <div><button on:click={() => {submit(link.id)}}>Pyost Comment (* ω)</button></div>
+        <div><button on:click={() => {submit(link.id); location.reload()}}>Pyost Comment (* ω)</button></div>
         <br />
         {#each link.comments as comment}
             <Comment obj={comment} id={link.id} />

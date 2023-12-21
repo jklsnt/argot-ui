@@ -14,7 +14,6 @@
                               'Content-Type': 'application/json'
                           },
                           body: JSON.stringify({post: id, parent: obj.id, content:reply})});
-        window.location.href = "/";
     }
 </script>
 
