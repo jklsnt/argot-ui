@@ -29,8 +29,8 @@
 </script>    
 
 <div style="">
-    <h1>Argot</h1>
-    <i>{message}</i>
+    <div><h1 style="display: inline-block">Argot</h1></div>
+    <i>{message} <a href="/login" style="float:right">login</a></i>
 
     <hr />
 
