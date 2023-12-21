@@ -6,23 +6,8 @@
     import Link from "$lib/components/link.svelte";
 
     async function fetchPosts() {
-        // const response = await self.fetch(`${server}/posts`)
-        // return response.json();	
-        return [
-            {
-                "author": "quantumish",
-                "content": null,
-                "id": 1,
-                "link": "https://example.com",
-                "private": false,
-                "tags": [
-                    "asm",
-                    "cool",
-                    "wack"
-                ],
-                "time": "7 hours ago",
-                "title": "Whee"
-            }];
+        const response = await self.fetch(`${server}/posts`)
+        return response.json();	
     }
     let promise = fetchPosts();
     
@@ -30,7 +15,7 @@
 
 <div style="">
     <div><h1 style="display: inline-block">Argot</h1></div>
-    <i>{message} <a href="/login" style="float:right">login</a></i>
+    <i>{message} <span style="float:right"><a href="/search">search</a> | <a href="/login">login</a></span></i>
 
     <hr />
 
