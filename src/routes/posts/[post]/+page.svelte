@@ -8,6 +8,8 @@
 
     $: post = $page.params.post;
 
+    let reply = "";
+
     async function fetchPost(postID) {
         console.log(`fetching ${postID}`)
         // const response = await self.fetch(`${server}/posts`)
@@ -20,8 +22,30 @@
                     "children": [
                         {
                             "author": "quantumish",
+                            "children": [{
+                            "author": "quantumish",
                             "children": [],
-                            "content": "Damn that's crazy.",
+                            "content": "Damn that's crazy. Engage in the most adowable and cozy dwiscussion, where thoughts awe expwessed with the utmost kawaii vibes! (* >ω<) Conversations unfurl like gentle nyuzzles, as pwecious ideas dance together in the soft moonlight of uwu. Each topic is embraced with a warm hug of nya-magic, turning mundane discussions into an enchanting journey through the whimsical land of kawaii communication. So, let's gathew awound, nya-friends, and embark on a delightful adventure of dwiscovewy and nyuance together! (´∩｡• ᵕ •｡∩`) Nyaa~ (∩^ω^∩)",
+                            "id": 2,
+                            "private": false,
+                            "time": "7 hours ago"
+                            }, {
+                            "author": "quantumish",
+                            "children": [],
+                            "content": "this is an ice cone",
+                            "id": 2,
+                            "private": false,
+                            "time": "7 hours ago"
+                        }],
+                            "content": "Damn that's crazy. Engage in the most adowable and cozy dwiscussion, where thoughts awe expwessed with the utmost kawaii vibes! (* >ω<) Conversations unfurl like gentle nyuzzles, as pwecious ideas dance together in the soft moonlight of uwu. Each topic is embraced with a warm hug of nya-magic, turning mundane discussions into an enchanting journey through the whimsical land of kawaii communication. So, let's gathew awound, nya-friends, and embark on a delightful adventure of dwiscovewy and nyuance together! (´∩｡• ᵕ •｡∩`) Nyaa~ (∩^ω^∩)",
+                            "id": 2,
+                            "private": false,
+                            "time": "7 hours ago"
+                        },
+                        {
+                            "author": "quantumish",
+                            "children": [],
+                            "content": "Damn that's crazy. Engage in the most adowable and cozy dwiscussion, where thoughts awe expwessed with the utmost kawaii vibes! (* >ω<) Conversations unfurl like gentle nyuzzles, as pwecious ideas dance together in the soft moonlight of uwu. Each topic is embraced with a warm hug of nya-magic, turning mundane discussions into an enchanting journey through the whimsical land of kawaii communication. So, let's gathew awound, nya-friends, and embark on a delightful adventure of dwiscovewy and nyuance together! (´∩｡• ᵕ •｡∩`) Nyaa~ (∩^ω^∩)",
                             "id": 2,
                             "private": false,
                             "time": "7 hours ago"
@@ -34,7 +58,14 @@
                 },
                 {
                     "author": "quantumish",
+                    "children": [{
+                    "author": "quantumish",
                     "children": [],
+                    "content": "this is NOT an ICE CREAM CONe.",
+                    "id": 3,
+                    "private": false,
+                    "time": "7 hours ago"
+                }],
                     "content": "Boring stuff.",
                     "id": 3,
                     "private": false,
@@ -55,6 +86,15 @@
         }
     }
 
+    async function submit(id) {
+        await self.fetch(`${server}/comments`,
+                         {method: "POST",
+                          headers: {
+                              'Content-Type': 'application/json'
+                          },
+                          body: JSON.stringify({post: id, content:reply})});
+    }
+
     $: promise = fetchPost(post);
 </script>    
 
@@ -68,8 +108,12 @@
         <p>Loading... :3</p>
     {:then link}
         <Link obj={link} />
+
+        <div><textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0"></textarea></div>
+        <div><button on:click={() => {submit(link.id)}}>Pyost Comment (* ω)</button></div>
+        <br />
         {#each link.comments as comment}
-            <Comment obj={comment} />
+            <Comment obj={comment} id={link.id} />
         {/each}
     {/await}
 
