@@ -5,6 +5,7 @@
     let replying=false;
     let reply="";
 
+    import {messages, server} from "$lib/constants.js";
     async function submit() {
         await self.fetch(`${server}/comments`,
                          {method: "POST",
