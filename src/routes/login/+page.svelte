@@ -14,6 +14,7 @@
                           headers: {
                               'Content-Type': 'application/json'
                           },
+                          credentials: 'include',
                           body: JSON.stringify({
                               nick,
                               password
