@@ -9,13 +9,14 @@
     let posts = []
 
     async function fetchPosts(query) {
-        const respose = await self.fetch(`${server}/posts/search`,
-                                         {method: "GET",
+        const response = await self.fetch(`${server}/posts/search`,
+                                         {method: "PUT",
                                           headers: {
                                               'Content-Type': 'text/plain'
                                           },
                                           body: search});
-        posts = response.json();	
+      posts = await response.json();
+	  console.log(posts);
     }
     // let promise = fetchPosts();
     // let promise = handleSearch();

@@ -18,7 +18,7 @@
                               nick,
                               password
                           })});
-        window.location.href = "/";
+        // window.location.href = "/";
         
     }
 </script>    
