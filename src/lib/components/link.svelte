@@ -4,9 +4,9 @@
 
 <div style="border: 1px dotted gray; margin: 10px 0; padding: 15px;">
     <a href={obj.link} style="text-decoration: none; cursor:pointer"><span>{obj.title}</span> <span style="opacity: 0.4; color: blue; font-size: 10px"> {obj.link}</span></a>
-    <div style="float:right; font-size: 1; display: flex; flex-direction: column; gap: 3px">
+    <div style="float:right; font-size: 1; display: flex; flex-direction: column; gap: 3px; z-index: 10000; position: relative;">
         <span style="text-align: right;">{obj.author}</span>
-        <span style="font-size: 13px;"><a style="font-size: 13px; min-height: 20px" href={`/posts/${obj.id}`}>discuss</a> | {obj.time}</span>
+        <span style="font-size: 13px;"><a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`}>discuss</a> | {obj.time}</span>
     </div>
     <div style="margin-top:5px">
     {#if obj.content != null && obj.content != ""}
