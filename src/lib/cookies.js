@@ -6,6 +6,10 @@ export function setCookie(c_name, value, exdays) {
   console.log(document.cookie);
 }
 
+export function deleteCookie(name) {
+    document.cookie = name + '=; Max-Age=0'
+}
+
 export function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
