@@ -37,6 +37,8 @@
                           })});
         window.location.href = "/";      
     }
+
+    let used = [];
 </script>
 
 <div style="">
@@ -57,11 +59,13 @@
     {:then avail_tags}
 	  <select bind:value={curtag}>
 		{#each avail_tags as tag}
-		  <option value="{tag}">{tag.name}</option>
+            {#if !used.includes(tag.name)}
+                <option value="{tag}">{tag.name}</option>
+            {/if}
 		{/each}
 	  </select>
 	{/await}
-	<button on:click={() => {tags.push(curtag); tags=tags; }}>+</button><br>	
+	<button on:click={() => {tags.push(curtag); tags=tags; used.push(curtag.name); used=used;}}>+</button><br>	
 
 	
     <hr />
