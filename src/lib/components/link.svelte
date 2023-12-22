@@ -3,7 +3,7 @@
 
     import {getCookie} from "$lib/cookies.js";
 
-    let cookie = getCookie("argot__usr")
+    let cookie = getCookie("argot__usr");
     let user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
 </script>
 
