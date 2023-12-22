@@ -8,6 +8,7 @@
     let url = "";
     let title = "";
     let content = "";
+    let priv = false;
 
     import Link from "$lib/components/link.svelte";
 
@@ -38,6 +39,7 @@
         <li>URL (* ω): <input type="text" bind:value={url} /></li>
         <li>Titwe (*≧▽≦):: <input type="text" bind:value={title} /></li>
         <li>Content (⁄ ⁄•⁄ω⁄•⁄ ⁄): <textarea bind:value={content}></textarea></li>
+		<li>Private?: <input type="checkbox" bind:checked={priv}/></li>
     </ul>
     <hr />
 
@@ -48,7 +50,7 @@
     <!-- {/each} -->
 
     Pwease dewight in this exclusive linkie cuwated by none othew than meowself:
-    <Link obj={{title, link:url, author:"you", content, time:"just now"}} />
+    <Link obj={{title: "​"+title, link:url, author:"you", content: content, time:"just now", tags: [], private: priv}} />
     <hr />
     <button on:click={submit}>UwU~! (*≧ω≦) Suwubmit this wink nyow, desu~! (´•̥ ω •̥`) Nyaa~ (∩^ω^∩)</button>
 </div>

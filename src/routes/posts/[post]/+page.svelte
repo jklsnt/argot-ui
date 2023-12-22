@@ -9,9 +9,10 @@
     $: post = $page.params.post;
 
     let reply = "";
+  let priv = false;
 
     async function fetchPost(postID) {
-      const response = await self.fetch(`${server}/posts/${postID}`)
+      const response = await self.fetch(`${server}/posts/${postID}`, {credentials: 'include'})
 	  let blah = await response.json();
 	  console.log(blah);
       return blah;	
@@ -24,7 +25,7 @@
                           headers: {
                               'Content-Type': 'application/json'
                           },
-                          body: JSON.stringify({post: id, content:reply})});
+                          body: JSON.stringify({post: id, content:reply, private:priv})});
     }
 
     $: promise = fetchPost(post);
@@ -42,7 +43,9 @@
         <Link obj={link} />
 
         <div><textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0"></textarea></div>
-        <div><button on:click={async () => {await submit(link.id); location.reload()}}>Pyost Comment (* ω)</button></div>
+        <div><button on:click={async () => {await submit(link.id); location.reload()}}>Pyost Comment (* ω *)</button>
+		  <span style="margin-left: 3px; font-size: 13px">private? <input type="checkbox" bind:checked={priv}/></span>
+		</div>
         <br />
         {#each link.comments as comment}
             <Comment obj={comment} id={link.id} />

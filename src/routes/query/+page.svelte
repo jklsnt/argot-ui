@@ -6,14 +6,20 @@
     import Link from "$lib/components/link.svelte";
 
     import { page } from '$app/stores'
-    const query = $page.url.searchParams.get('query')
+    const query = $page.url.searchParams.get('q')
   
-   async function fetchPosts() {	   
-	    const response = await self.fetch(`${server}/posts`, {credentials: 'include'})	  
-        return response.json();	
-   }
-   async function logout() {	   
-	    const response = await self.fetch(`${server}/logout`, {credentials: 'include', method: 'POST'})	  
+  async function fetchPosts() {
+	 let response = "";
+	if (query != null) {		
+      response = await self.fetch(`${server}/posts/query`, {credentials: 'include',
+													  headers: {
+														'Content-Type': 'text/plain'
+													  },
+													  body: query,
+													  method: "PUT"})
+	  } else {
+		response = await self.fetch(`${server}/posts`, {credentials: 'include'})
+	  }
         return response.json();	
     }
     let promise = fetchPosts();
@@ -22,8 +28,7 @@
 
 <div style="">
     <div><h1 style="display: inline-block">Argot</h1></div>
-    <i>{message} <span style="float:right"><a href="/search">search</a> | <a href="/tags">tags</a> | <a href="/login">login</a> | 
-		<a href="/login" on:click={() => {logout()}}>logout</a></span> </i>
+    <i>{message} <span style="float:right"><a href="/search">search</a> | <a href="/login">login</a></span></i>
 
     <hr />
 

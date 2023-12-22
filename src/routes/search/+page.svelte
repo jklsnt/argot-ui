@@ -10,7 +10,8 @@
 
     async function fetchPosts(query) {
         const response = await self.fetch(`${server}/posts/search`,
-                                         {method: "PUT",
+                                          {method: "PUT",
+										   credentials: 'include',
                                           headers: {
                                               'Content-Type': 'text/plain'
                                           },
