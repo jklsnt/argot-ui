@@ -7,9 +7,8 @@ export function setCookie(c_name, value, exdays) {
 }
 
 export function getCookie(name) {
-      const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  console.log(document.cookie);
-  if (parts.length === 2) return parts.pop().split(';').shift();
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
 }
 
