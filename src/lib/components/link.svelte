@@ -1,13 +1,13 @@
 <script>
     export let obj; 
-
+    import {server} from "$lib/constants.js";
     import {getCookie} from "$lib/cookies.js";
 
   let cookie = getCookie("argot__usr")
   console.log(cookie);
     let user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
 
-    async function delete() {
+    async function delete_post() {
         await self.fetch(`${server}/posts/${obj.id}`,
                          {method: "DELETE",
                           credentials: 'include'});
@@ -23,7 +23,7 @@
     <div style="float:right; font-size: 1; display: flex; flex-direction: column; gap: 3px; z-index: 10000; position: relative;">	
         <span style="text-align: right;"><a href="/users/{obj.author}">{obj.author}</a></span>
         <span style="font-size: 13px;"><a style={"font-size: 13px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")} on:click={async () => {
-                await delete();
+                await delete_post();
                 }} href={"javascript:void(0)"}>delete</a> <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>|</span> <a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`}>discuss</a> | {obj.time}</span>
     </div>
     <!-- <br><span style="font-size: 13px;">edit</span> -->
