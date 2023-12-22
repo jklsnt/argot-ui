@@ -7,13 +7,13 @@
 
     import { page } from '$app/stores'
     const query = $page.url.searchParams.get('query')
-  
-   async function fetchPosts() {	   
-	    const response = await self.fetch(`${server}/posts`, {credentials: 'include'})	  
+    
+    async function fetchPosts() {	   
+        const response = await self.fetch(`${server}/posts`, {credentials: 'include'})	  
         return response.json();	
-   }
-   async function logout() {	   
-	    const response = await self.fetch(`${server}/logout`, {credentials: 'include', method: 'POST'})	  
+    }
+    async function logout() {	   
+        const response = await self.fetch(`${server}/logout`, {credentials: 'include', method: 'POST'})	  
         return response.json();	
     }
     let promise = fetchPosts();
@@ -23,7 +23,7 @@
 <div style="">
     <div><h1 style="display: inline-block">Argot</h1></div>
     <i>{message} <span style="float:right"><a href="/search">search</a> | <a href="/tags">tags</a> | <a href="/login">login</a> | 
-		<a href="/login" on:click={() => {logout()}}>logout</a></span> </i>
+            <a href="/login" on:click={() => {logout()}}>logout</a></span> </i>
 
     <hr />
 

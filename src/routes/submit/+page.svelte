@@ -15,7 +15,7 @@
   
     import Link from "$lib/components/link.svelte";
 
-    async function fetchTags() {	   
+    async function fetchTags() {
 	    const response = await self.fetch(`${server}/tags`, {credentials: 'include'})
 	    return response.json();
 	}
