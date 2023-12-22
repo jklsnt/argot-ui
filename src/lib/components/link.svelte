@@ -1,5 +1,5 @@
 <script>
-    export let obj;
+    export let obj; 
 
     import {getCookie} from "$lib/cookies.js";
 
