@@ -3,8 +3,7 @@
     import {server} from "$lib/constants.js";
     import {getCookie} from "$lib/cookies.js";
 
-  let cookie = getCookie("argot__usr")
-  console.log(cookie);
+    let cookie = getCookie("argot__usr")
     let user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
 
     async function delete_post() {
