@@ -6,6 +6,13 @@
   let cookie = getCookie("argot__usr")
   console.log(cookie);
     let user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
+
+    async function delete() {
+        await self.fetch(`${server}/posts/${obj.id}`,
+                         {method: "DELETE",
+                          credentials: 'include'});
+        location.reload();
+    }
 </script>
 
 <div style="border: 1px dotted gray; margin: 10px 0; padding: 15px;">
