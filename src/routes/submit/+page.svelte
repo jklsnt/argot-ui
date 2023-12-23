@@ -13,7 +13,7 @@
     let curtag = "";
     let tags = [];
   
-    import Link from "$lib/components/link.svelte";
+    import StaticLink from "$lib/components/staticlink.svelte";
 
     async function fetchTags() {
 	    const response = await self.fetch(`${server}/tags`, {credentials: 'include'})
@@ -77,7 +77,7 @@
     <!-- {/each} -->
 
     Pwease dewight in this exclusive linkie cuwated by none othew than meowself:
-    <Link obj={{title: "​"+title, link:url, author:"you", content: content, time:"just now", tags: tags.map((t) => t.name), private: priv}} />
+    <StaticLink obj={{title: "​"+title, link:url, author:"you", content: content, time:"just now", tags: tags.map((t) => t.name), private: priv}} />
     <hr />
     <button on:click={submit}>UwU~! (*≧ω≦) Suwubmit this wink nyow, desu~! (´•̥ ω •̥`) Nyaa~ (∩^ω^∩)</button>
 </div>

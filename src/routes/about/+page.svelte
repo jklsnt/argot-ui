@@ -4,6 +4,7 @@ Argot is a private link aggregator (think Hacker News or Lobste.rs clone).
 
 <ul>
   <li><b>Tagging support.</b> Full tagging system with decently powerful queries.</li>
-  <li><b>No votes.</b></li>
+  <li><b>No votes.</b> This being closed means that we don't need to worry (as much) about bad actors.</li>
+  <ul><li>Side note: don't be a bad actor!
   <li></li>
 </ul>
