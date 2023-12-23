@@ -18,8 +18,10 @@
     }
 
     async function markRead(comment_id) {
-      const response = await self.fetch(`${server}/inbox/read/${comment_id}`, {method: "POST", credentials: 'include'})
-	  return response.json();	  
+        const response = await self.fetch(`${server}/inbox/read/${comment_id}`, {method: "POST", credentials: 'include'})
+        response.json();	  
+
+        location.reload();
     }
 
   
@@ -31,18 +33,19 @@
     <Header />
 
 
-    <hr />
+    <br />
+    <h3 class="callout">Inbox</h3>
     {#await promise}
         <div class="loadbar">
             <p>Loading... :3</p>
         </div>
     {:then comments}	  
-	  <h3 class="secondary">Inbox</h3>
 
+    <div style="margin-top: 10px">
       {#each comments as comment}
-		<a on:click={markRead(comment.id)} class="tool">(mark read)</a>
-        <StaticComment obj={comment} id={comment.id} />
+        <StaticComment obj={comment} id={comment.id} markread={() => {markRead(comment.id)}} />
       {/each}
+    </div>
     {/await}
 
     

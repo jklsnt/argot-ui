@@ -35,9 +35,8 @@
 
 <div style="">
     <Header />
-    <hr />
-
     <br />
+    <h3 class="callout" style="padding-bottom: 5px">Search</h3>
     <input bind:value={search} type="text" style="min-width: 400px; margin-right: 10px;"/> <button on:click={() => {fetchPosts(search); fetchComments(search);}}>search</button>
     <br />
 	<br />

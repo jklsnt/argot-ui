@@ -41,7 +41,7 @@
         <span style="text-align: right;" class="author"><a href="/users/{obj.author}">{obj.author}</a></span>
         <span style="font-size: 13px;" class="tooltip"><a style={"font-size: 13px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")} on:click={async () => {
                 await delete_post();
-            }} href={"javascript:void(0)"}  class="tool">delete</a> <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>| </span> <span style={"color: red; display: "+(isStatic?"none":"inline")}>{#if obj.num_comments != 0}({obj.num_comments}){/if} <a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`} class="tool">discuss</a>  |</span> {obj.time}</span>
+            }} href={"javascript:void(0)"}  class="tool">delete</a> <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>| </span> <span style={"display: "+(isStatic?"none":"inline")}>{#if obj.num_comments != 0}({obj.num_comments}){/if} <a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`} class="tool">discuss</a>  |</span> {obj.time}</span>
                 </div>
     <div>
         {#if obj.private}

@@ -2,6 +2,7 @@
 <script>
     export let obj;
     export let id;
+    export let markread;
 
     import {marked} from "marked";
     import DOMPurify from "dompurify";
@@ -14,7 +15,8 @@
         {#if obj.private}
             <span style="font-size: 13px; color: purple;">(private)</span> 
         {/if}
-        | {obj.time} | <a href="/posts/{obj.post_id}"  class="tool">context</a></div>
+        | {obj.time} | <a href="/posts/{obj.post_id}"  class="tool">context</a> {#if markread} | <a href="javascript:void(0)" on:click={() => markread()} class="tool">mark as read</a>{/if}
+        </div>
 </div>
 
     <div style="padding-top: 5px; white-space: pre-wrap;">{@html DOMPurify.sanitize(marked.parse(obj.content))}</div>
