@@ -1,18 +1,15 @@
-export function setCookie(c_name, value, exdays) {
-  var exdate = new Date();
-  exdate.setDate(exdate.getDate() + exdays);
-  var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
-  document.cookie = c_name + "=" + c_value;
-  console.log(document.cookie);
+import Cookie from "js-cookie";
+
+export function setCookie(c_name, value) {
+    console.log(c_name, value);
+    Cookie.set(c_name, value);
 }
 
 export function deleteCookie(name) {
-    document.cookie = name + '=; Max-Age=0'
+    Cookie.remove(name);
 }
 
 export function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return decodeURIComponent(parts.pop().split(';').shift());
+    return Cookie.get(name);
 }
 
