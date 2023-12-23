@@ -52,12 +52,18 @@
             
             <div style="padding-top: 5px; white-space: pre-wrap;">{@html DOMPurify.sanitize(marked.parse(obj.content))}</div>
             {#if replying}
-                <textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0; max-width: 100%"></textarea>
-                <div><button on:click={async () => {
-                        await submit();
-                        location.reload();
-                        }}>Pyost (* ω)</button> <button on:click={() => {reply=""; replying=false;}}>Cawncew</button>
-                    <span style="margin-left: 3px; font-size: 13px">private? <input type="checkbox" bind:checked={priv}/></span>
+                <div style="margin: 0 0 20px 0">
+                <textarea bind:value={reply} style="width:350px; height: 100px; max-width: 100%" placeholder="Whatcha gotta say? Yarr!"></textarea>
+                <div style="width: 350px; max-width: 100%;">
+                    <span style="font-size: 13px; color: var(--blue) ">Private? &nbsp; <input type="checkbox" bind:checked={priv}/></span>
+                    <div class="action">
+                        <a href="javascript:void(0)" on:click={() => {reply=""; replying=false;}}>cancel</a>
+                        <a href="javascript:void(0)" class="primary" on:click={async () => {
+                            await submit();
+                            location.reload();
+                        }}>post</a> 
+                    </div>
+                </div>
                 </div>
             {/if}
 

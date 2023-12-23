@@ -1,0 +1,10 @@
+.action {
+    display: inline-block;
+    float: right;
+    color: var(--blue) !important;
+}
+
+.action .primary {
+    font-weight: 600;
+    margin-left: 3px;
+}

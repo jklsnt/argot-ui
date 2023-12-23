@@ -44,16 +44,17 @@
     }
 
     let used = [];
+    import "./submit.css";
 </script>
 
 <div style="">
   <Header />
-  <hr />
-  <h2>submit</h2>
+  <br />
+  <h2 class="callout">New Post</h2>
     <ul style="margin-top: 10px; margin-bottom: 10px;">
-        <li>URL: <input type="text" bind:value={url} /></li>
-        <li>Title: <input type="text" bind:value={title} /></li>
-        <li>Content: <br><textarea style="width: 400px; max-width: 100%"bind:value={content}></textarea></li>
+        <li>Title: <input type="text" bind:value={title} placeholder="Titles are Good" /></li>
+        <li>URL (optional): <input type="text" bind:value={url} placeholder="https://example.com" /></li>
+        <li>Content (optional): <br><textarea style="width: 400px; max-width: 100%; padding: 7px" placeholder="Why does a woodchuck? Chuck?" bind:value={content}></textarea></li>
 		<li>Private? <input type="checkbox" bind:checked={priv}/></li>
 		<li><div>
     
@@ -73,14 +74,8 @@
 	</div></li>
 	</ul>
 
-	<button on:click={submit}>submit</button>
-    <hr />
-
-    <!-- <div style="display: flex; justify-content: space-between; align-items:center"><h2>winkie-linkies OwO</h2> <button style="max-height: 25px; cursor: pointer" on:click={() => {window.location.href="/submit"}}>UwU~! Suwubmit winky-wink!</button></div> -->
-
-    <!-- {#each links as link} -->
-        <!-- <Link obj={link} /> -->
-    <!-- {/each} -->
+	<button on:click={submit}>Submit</button>
+    <br />
     
     <StaticLink obj={{title: "​"+title, link:url, author:"you", content: content, time:"just now", tags: tags.map((t) => t.name), private: priv}} />
     

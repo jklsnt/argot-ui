@@ -1,0 +1,15 @@
+ul {
+    margin: 10px 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.note {
+    font-weight: 400;
+    color: var(--green);
+    padding: 0;
+    transform: translateY(-7px);
+    font-size: 12px;
+}

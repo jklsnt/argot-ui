@@ -28,9 +28,9 @@
 <div style="">
     <Header />
 
-    <hr />
+    <br />
 
-    <h2>Tags</h2> 
+    <h2 class="callout">Tags</h2> 
 
     <input bind:value={newtag} type="text" style="min-width: 100px; margin-right: 10px;"/> <button on:click={async () => {await addTag(newtag); location.reload()}}>Add</button><br><br>
     
@@ -38,7 +38,7 @@
         <p>Loading... :3</p>
     {:then tags}
         {#each tags as tag}
-            <span style="width: 10px; background-color: hotpink; padding: 5px;">
+            <span style="width: 10px; background-color: #d9d9d9; padding: 5px; border-radius: 5px;">
                 <a href="/query?q={tag.name}">{tag.name}</a>
             </span><br><br>
         {/each}

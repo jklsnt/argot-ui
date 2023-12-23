@@ -39,7 +39,7 @@
       {#each user.posts as link}
         <Link obj={link}/>
       {/each}
-	  <h3 class="secondary">Comments</h3>
+	  <h3 class="secondary" style="margin-bottom: 20px">Comments</h3>
 
       {#each user.comments as comment}
         <StaticComment obj={comment} id={comment.id} />

@@ -53,6 +53,8 @@
         await do_login();
     }
 
+    import "./signup.css";
+
   
 </script>    
 
@@ -72,11 +74,12 @@
     <hr />
 
 	<h2 style="margin-bottom: 10px; margin-top: 10px;"> signup </h2>
+    <p class="note">Available to authorised users only.</p>
 	<ul>
         <li>nick: <input type="text" bind:value={nick} /></li>
         <li>password: <input type="password" bind:value={password} /></li>
 		<li>email (optional): <input type="text" bind:value={email} /></li>
-		<li>bio (optional)<br> <textarea bind:value={bio} style="width: 400px; height: 100px;"></textarea></li>
+		<li>bio (optional):<br> <textarea bind:value={bio} style="width: 400px; height: 100px; padding: 10px; margin-top: 5px; margin-left: 0;" placeholder="I like tomatos and I cannot lie."></textarea></li>
     </ul>
 	<button on:click={sign_submit}>sign up</button>
 	
