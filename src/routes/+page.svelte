@@ -38,15 +38,22 @@
     <br />
     <div class="links-header">
         <h2>Links</h2>
-        <a style="cursor: pointer" href="javascript:void(0)" class="mono" on:click={() => {window.location.href="/submit"}}>(submit)</a>
+        <a style="cursor: pointer" href="/submit" class="mono">(submit)</a>
     </div>
 
     {#await promise}
-        <p>Loading... :3</p>
+        <div class="loadbar">
+            <p>Loading...</p>
+        </div>
     {:then links}
-        {#each links as link}
-            <Link obj={link} />
-        {/each}
+        {#if links.length == 0}
+            <div class="empty">Such emptiness... Submit something?</div>
+        {:else}
+            {#each links as link}
+                <Link obj={link} />
+            {/each}
+        {/if}
     {/await}
+
 
 </div>
