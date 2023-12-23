@@ -47,7 +47,7 @@
   
     <div style="padding-top: 5px">{obj.content}</div>
     {#if replying}
-        <textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0"></textarea>
+        <textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0; max-width: 100%"></textarea>
         <div><button on:click={async () => {
                 await submit();
                 location.reload();

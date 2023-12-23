@@ -35,7 +35,7 @@
     <i>{message} <span style="float:right"><a href="/search">search</a> | <a href="/tags">tags</a> | <a href="/login" on:click={() => {if(isLogged) logout();}}>{isLogged ? "logout" : "login"}</a></span> </i>
     <hr />
 
-    <div style="display: flex; justify-content: space-between; align-items:center"><h2>Links</h2> <button style="max-height: 25px; cursor: pointer" on:click={() => {window.location.href="/submit"}}>UwU~! Suwubmit winky-wink!</button></div>
+    <div style="display: flex; justify-content: space-between; align-items:center; width: 100%"><h2>Links</h2> <button style="max-height: 25px; cursor: pointer" on:click={() => {window.location.href="/submit"}}>Suwubmit winky-wink!</button></div>
 
     {#await promise}
         <p>Loading... :3</p>

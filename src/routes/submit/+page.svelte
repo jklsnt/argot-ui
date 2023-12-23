@@ -2,6 +2,7 @@
 
     import {messages, server} from "$lib/constants.js";
 
+    import {validURL} from "$lib/utils.js";
 
     let message = messages[Math.floor(Math.random() * messages.length)];
 
@@ -22,6 +23,10 @@
     let promise = fetchTags();
   
     async function submit() {
+        if (url.trim() != "" && !validURL(url)) {
+            alert("yuwu submitted a URL, but it doesn't wook wike one~ (´｡• ω •｡`). try harder desu. (HINT: did you forget the http protocol?)");
+            return;
+        }
         await self.fetch(`${server}/posts`,
                          {method: "POST",
                           credentials: 'include',
@@ -50,7 +55,7 @@
     <ul>
         <li>URL (* ω): <input type="text" bind:value={url} /></li>
         <li>Titwe (*≧▽≦):: <input type="text" bind:value={title} /></li>
-        <li>Content (⁄ ⁄•⁄ω⁄•⁄ ⁄): <br><textarea style="width: 400px;"bind:value={content}></textarea></li>
+        <li>Content (⁄ ⁄•⁄ω⁄•⁄ ⁄): <br><textarea style="width: 400px; max-width: 100%"bind:value={content}></textarea></li>
 		<li>Private?: <input type="checkbox" bind:checked={priv}/></li>		
     </ul>
 	Tags:

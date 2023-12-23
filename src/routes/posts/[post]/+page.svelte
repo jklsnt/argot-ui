@@ -42,7 +42,7 @@
     {:then link}
         <Link obj={link} />
 
-        <div><textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0"></textarea></div>
+        <div><textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0; max-width: 100%"></textarea></div>
         <div><button on:click={async () => {await submit(link.id); location.reload()}}>Pyost Comment (* ω *)</button>
 		  <span style="margin-left: 3px; font-size: 13px">private? <input type="checkbox" bind:checked={priv}/></span>
 		</div>
