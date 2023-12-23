@@ -11,11 +11,12 @@
   
     let user = {};
     let promise = new Promise((res, _) => res([]));
-
+    
     async function fetchPosts() {	   
         const response = await self.fetch(`${server}/posts`, {credentials: 'include'})	  
         return response.json();	
     }
+  
     onMount(async () => {
         let cookie = getCookie("argot__usr");
         user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
