@@ -26,7 +26,7 @@
         // we store the user information for future UI use
         // for instance, we shouldn't bother rendering a delete
         // button for things that can't be deleted
-        setCookie("argot__usr", JSON.stringify(data), null);
+        setCookie("argot__usr", JSON.stringify(data));
 
         window.location.href = "/";
 
