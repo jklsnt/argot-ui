@@ -28,17 +28,18 @@
 	<br>
 
     {#await promise}
-        <p>Loading... :3</p>
+        <div class="loadbar">
+            <p>Loading... :3</p>
+        </div>
     {:then user}
-	  <h2>{user.nick}</h2>
+	  <h2 class="callout">{user.nick}</h2>
 	  <p>{user.bio}</p>
 
-	  <br>
-	  <h3> Posts </h3>
+	  <h3 class="secondary">Posts</h3>
       {#each user.posts as link}
         <Link obj={link}/>
       {/each}
-	  <h3> Comments </h3>
+	  <h3 class="secondary">Comments</h3>
 
       {#each user.comments as comment}
         <StaticComment obj={comment} id={comment.id} />
