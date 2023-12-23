@@ -8,13 +8,24 @@
     import Header from "$lib/components/header.svelte";
     $: post = $page.params.post;
 
+    import {getCookie} from "$lib/cookies.js";
+    let user = {};
+    import { onMount } from 'svelte';
+
+    onMount(async () => {
+        let cookie = getCookie("argot__usr");
+        user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
+    });
+
+    $: isLogged = user.nick != undefined;
+
+
     let reply = "";
   let priv = false;
 
     async function fetchPost(postID) {
       const response = await self.fetch(`${server}/posts/${postID}`, {credentials: 'include'})
 	  let blah = await response.json();
-	  console.log(blah);
       return blah;	
     }
 
@@ -48,11 +59,14 @@
         <br />
         <h1 class="secondary" style="font-size: 15px; margin-bottom: 0px">{link.num_comments} Comments</h1>
 
+        {#if isLogged}
 
-        <div><textarea placeholder="Replies? Comments? Angry tomatos?" bind:value={reply} style="width:100%; height: 100px; margin: 6px 0 10px 0"></textarea></div>
+        <div>
+            <textarea placeholder="Replies? Comments? Angry tomatos?" bind:value={reply} style="width:100%; height: 100px; margin: 6px 0 10px 0"></textarea></div>
         <div><a href="javascript:void(0)" on:click={async () => {await submit(link.id); location.reload()}} class="post">Submit</a>
 		  <span style="font-size: 13px; color: var(--blue)">Private? &nbsp; <input type="checkbox" bind:checked={priv}/></span>
 		</div>
+        {/if}
         <br />
         <div style="transform: translateX(-20px);">
             {#each link.comments as comment}

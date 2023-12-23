@@ -6,10 +6,16 @@
     import {marked} from "marked";
     import DOMPurify from "dompurify";
 
-    let cookie = getCookie("argot__usr")
-    console.log(cookie);
-    let user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
-    
+    let user = {};
+    import { onMount } from 'svelte';
+
+    onMount(async () => {
+        let cookie = getCookie("argot__usr");
+        user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
+    });
+
+    $: isLogged = user.nick != undefined;
+
     let replying=false;
     let reply="";
     let priv=false;
@@ -41,7 +47,7 @@
         {#if obj.private}
             <span style="font-size: 13px; color: purple;">(private)</span> 
         {/if}
-        | {obj.time} | <a href="javascript:void(0);" on:click={()=>{replying=true}}  class="tool">reply</a>
+        | {obj.time} {#if isLogged}| <a href="javascript:void(0);" on:click={()=>{replying=true}}  class="tool">reply</a>{/if}
             <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>| </span>
             <a style={"font-size: 13px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")}  class="tool" on:click={async () => {
                 await delete_comment();
