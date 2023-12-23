@@ -10,7 +10,7 @@
         await self.fetch(`${server}/posts/${obj.id}`,
                          {method: "DELETE",
                           credentials: 'include'});
-        location.reload();
+        window.location.href = "/";
     }
 </script>
 
