@@ -38,7 +38,7 @@
 {/if}
 
 {#each obj.tags as tag}
-    <span style="margin-right: 8px; font-size: 13px; color: hotpink; max-width: 100%; display: inline-block">
+    <span style="margin-right: 8px; font-size: 13px; color: blue; max-width: 100%; display: inline-block">
         <a href="/query?q={tag}">{tag}</a>
     </span>
 {/each}

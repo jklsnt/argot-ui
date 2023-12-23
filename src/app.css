@@ -18,13 +18,31 @@ body {
 }
 
 .mono {
-    font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', monospace;
 }
 
 a {
     cursor: pointer !important;
     position: relative;
     z-index: 2;
-    cursor: pointer
+    cursor: pointer;
+}
 
+textarea,input {
+  border-width: 1px;
+}
+
+li {
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+h2 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button {
+  color: blue !important;  
 }

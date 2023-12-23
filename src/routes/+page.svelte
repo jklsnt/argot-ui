@@ -37,8 +37,8 @@
     <Header />
     <br />
     <div class="links-header">
-        <h2>Links</h2>
-        <a style="cursor: pointer" href="/submit" class="mono">(submit)</a>
+      <h2>Links</h2>
+	  <a style="cursor: pointer; float:right" href="/submit" class="mono">(submit)</a>
     </div>
     <hr />
 
