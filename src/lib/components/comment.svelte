@@ -45,7 +45,7 @@
   <span style="font-size: 13px;">	
 	<!-- <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}> -->
   
-    <div style="padding-top: 5px">{obj.content}</div>
+    <div style="padding-top: 5px; white-space: pre-wrap;">{obj.content}</div>
     {#if replying}
         <textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0; max-width: 100%"></textarea>
         <div><button on:click={async () => {
