@@ -2,13 +2,24 @@
     export let obj; 
     import {server} from "$lib/constants.js";
     import {validURL} from "$lib/utils.js";
-    import "./link.css";
+  import "./link.css";
+
+  function getLink(link) {
+	try {
+	  return new URL(link).host 
+	}
+	catch (e) {
+	  return link
+	}
+  }
 </script>
 
 <div class="link">
     <span class="header">
         <a href={obj.link} style="text-decoration: none; cursor:pointer"><span>{obj.title}</span>
-            <span style="opacity: 0.4; color: blue; font-size: 10px"> {obj.link && obj.link.trim() != "" ? (new URL(obj.link)).host : obj.link}</span></a>	
+          <span style="opacity: 0.4; color: blue; font-size: 10px">
+			{obj.link && obj.link.trim() != "" ? getLink(obj.link) : obj.link}
+		</span></a>	
     </span>	  
     <div style="float:right; font-size: 1; display: flex; flex-direction: column; gap: 3px; z-index: 10000; position: relative;">	
         <span style="text-align: right;"><a href="/users/{obj.author}">{obj.author}</a></span>

@@ -20,6 +20,7 @@
 	"type": "module",
 	"dependencies": {
 		"js-cookie": "^3.0.5",
+		"marked": "^11.1.0",
 		"yarn": "^1.22.21"
 	}
 }

@@ -24,7 +24,7 @@
   
     async function submit() {
         if (url.trim() != "" && !validURL(url)) {
-            alert("yuwu submitted a URL, but it doesn't wook wike one~ (´｡• ω •｡`). try harder desu. (HINT: did you forget the http protocol?)");
+            alert("Not a valid URL! Don't forget the protocol.");
             return;
         }
         await self.fetch(`${server}/posts`,
