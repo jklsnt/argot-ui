@@ -24,7 +24,6 @@
 <div style="">
     <Header />
 
-    <hr />
 	<br>
 
     {#await promise}
