@@ -41,7 +41,6 @@
       <h2 class="callout">Links</h2>
 	  <a style="cursor: pointer; float:right" href="/submit" class="mono">(submit)</a>
     </div>
-    <hr />
 
     {#await promise}
         <div class="loadbar">
@@ -53,7 +52,6 @@
         {:else}
             {#each links as link}
                 <Link obj={link} />
-                <hr />
             {/each}
         {/if}
     {/await}

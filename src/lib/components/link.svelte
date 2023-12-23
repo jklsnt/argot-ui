@@ -7,7 +7,7 @@
     import DOMPurify from "dompurify";
 
     // document.getElementById('content').innerHTML = marked.parse('# Marked in the browser\n\nRendered by **marked**.');
-  
+    
     let cookie = getCookie("argot__usr")
     let user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
 
@@ -19,7 +19,7 @@
     }
 
     
-  
+    
     import "./link.css";
 </script>
 
@@ -28,13 +28,12 @@
         <a href={obj.link} style="text-decoration: none; cursor:pointer"><span>{obj.title}</span>
             <span style="opacity: 0.4; color: blue; font-size: 10px"> {obj.link && obj.link.trim() != "" ? (new URL(obj.link)).host : obj.link}</span></a>	
     </span>	  
-    <div style="float:right; font-size: 1; display: flex; flex-direction: column; gap: 3px; z-index: 10000; position: relative;">	
-        <span style="text-align: right;"><a href="/users/{obj.author}">{obj.author}</a></span>
-        <span style="font-size: 13px;"><a style={"font-size: 13px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")} on:click={async () => {
+    <div style="float:right; font-size: 1; display: flex; flex-direction: column; gap: 3px; z-index: 10000; position: relative;" class="toolbox">	
+        <span style="text-align: right;" class="author"><a href="/users/{obj.author}">{obj.author}</a></span>
+        <span style="font-size: 13px;" class="tooltip"><a style={"font-size: 13px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")} on:click={async () => {
                 await delete_post();
-            }} href={"javascript:void(0)"}>delete</a> <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>|</span> {#if obj.num_comments != 0}({obj.num_comments}){/if} <a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`}>discuss</a>  | {obj.time}</span>
-                </div>
-    <!-- <br><span style="font-size: 13px;">edit</span> -->
+            }} href={"javascript:void(0)"}  class="tool">delete</a> <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>|</span> {#if obj.num_comments != 0}({obj.num_comments}){/if} <a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`} class="tool">discuss</a>  | {obj.time}</span>
+    </div>
     <div>
         {#if obj.private}
             <span style="margin-right: 3px; font-size: 13px; color: purple;">(private)</span>	
@@ -50,13 +49,8 @@
     </span>
 {/each}
 {#if obj.content != null && obj.content != ""}
-    <div  class="content" id="content">{@html DOMPurify.sanitize(marked.parse(obj.content))}</div>
-<!-- {:else} -->
-    <!--   <div style="opacity:0.3">Usuwu did nyot suwubmit contenty-wontent~!</div> -->
+    {@html DOMPurify.sanitize(marked.parse(obj.content))}
 {/if}
   </div>
 </div>    
-
-
-
 
