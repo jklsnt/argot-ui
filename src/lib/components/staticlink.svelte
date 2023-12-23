@@ -29,7 +29,7 @@
     </span>
 {/each}
 {#if obj.content != null && obj.content != ""}
-    <div style="margin-top:5px; font-size: 15px; white-space: pre-line">{obj.content}</div>
+    <div style="margin-top:5px; font-size: 15px; white-space: pre-line;">{obj.content}</div>
 <!-- {:else} -->
     <!--   <div style="opacity:0.3">Usuwu did nyot suwubmit contenty-wontent~!</div> -->
 {/if}

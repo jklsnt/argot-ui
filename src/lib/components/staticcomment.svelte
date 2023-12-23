@@ -10,5 +10,5 @@
 	  <span style="font-size: 13px; color: purple;">(private)</span> 
 	{/if}
 	| {obj.time} | <a href="/posts/{obj.post_id}">context</a></div>
-    <div style="padding-top: 5px">{obj.content}</div>    
+    <div style="padding-top: 5px; white-space: pre-wrap;">{obj.content}</div>    
 </div>
