@@ -1,0 +1,15 @@
+.link {
+    padding: 10px 0;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+.link .header {
+    font-weight: 500;
+    color: var(--blue);
+    font-size: 18px;
+}
+
+.content {
+    font-size: 14px;
+}

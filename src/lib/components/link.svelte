@@ -12,10 +12,12 @@
                           credentials: 'include'});
         window.location.href = "/";
     }
+
+    import "./link.css";
 </script>
 
-<div style="border: 1px dotted gray; margin: 10px 0; padding: 15px;">
-    <span>
+<div class="link">
+    <span class="header">
         <a href={obj.link} style="text-decoration: none; cursor:pointer"><span>{obj.title}</span>
             <span style="opacity: 0.4; color: blue; font-size: 10px"> {obj.link && obj.link.trim() != "" ? (new URL(obj.link)).host : obj.link}</span></a>	
     </span>	  
@@ -41,7 +43,7 @@
     </span>
 {/each}
 {#if obj.content != null && obj.content != ""}
-    <div style="margin-top:5px; font-size: 15px; white-space: pre-line">{obj.content}</div>
+    <div  class="content">{obj.content}</div>
 <!-- {:else} -->
     <!--   <div style="opacity:0.3">Usuwu did nyot suwubmit contenty-wontent~!</div> -->
 {/if}

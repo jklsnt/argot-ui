@@ -18,7 +18,7 @@
     onMount(async () => {
         let cookie = getCookie("argot__usr");
         user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
-        let promise = fetchPosts();
+        promise = fetchPosts();
     });
     
     $: isLogged = user.nick != undefined;
@@ -40,6 +40,7 @@
         <h2>Links</h2>
         <a style="cursor: pointer" href="/submit" class="mono">(submit)</a>
     </div>
+    <hr />
 
     {#await promise}
         <div class="loadbar">
@@ -51,6 +52,7 @@
         {:else}
             {#each links as link}
                 <Link obj={link} />
+                <hr />
             {/each}
         {/if}
     {/await}
