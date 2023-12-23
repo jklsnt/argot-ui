@@ -3,6 +3,11 @@
     import {server} from "$lib/constants.js";
     import {getCookie} from "$lib/cookies.js";
 
+    import {marked} from "marked";
+    import DOMPurify from "dompurify";
+
+    // document.getElementById('content').innerHTML = marked.parse('# Marked in the browser\n\nRendered by **marked**.');
+  
     let cookie = getCookie("argot__usr")
     let user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
 
@@ -13,6 +18,8 @@
         window.location.href = "/";
     }
 
+    
+  
     import "./link.css";
 </script>
 
@@ -43,7 +50,7 @@
     </span>
 {/each}
 {#if obj.content != null && obj.content != ""}
-    <div  class="content">{obj.content}</div>
+    <div  class="content" id="content">{@html DOMPurify.sanitize(marked.parse(obj.content))}</div>
 <!-- {:else} -->
     <!--   <div style="opacity:0.3">Usuwu did nyot suwubmit contenty-wontent~!</div> -->
 {/if}
