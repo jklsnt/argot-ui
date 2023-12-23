@@ -39,7 +39,9 @@
     <br />
     <div class="links-header">
       <h2 class="callout">Links</h2>
-	  <a style="cursor: pointer; float:right" href="/submit" class="mono">(submit)</a>
+      {#if isLogged}
+        <a style={"cursor: pointer; float:right;"} href="/submit" class="mono">(submit)</a>
+      {/if}
     </div>
 
     {#await promise}

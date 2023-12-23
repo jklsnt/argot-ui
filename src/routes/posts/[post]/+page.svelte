@@ -29,21 +29,29 @@
     }
 
     $: promise = fetchPost(post);
+
+    import "./post.css";
 </script>    
 
 <div style="">
    <Header />
 
-    <hr />
 
+   <br />
     {#await promise}
-        <p>Loading... :3</p>
+        <div class="loadbar">
+            <p>Loading...</p>
+        </div>
     {:then link}
         <Link obj={link} />
 
-        <div><textarea bind:value={reply} style="width:350px; height: 100px; margin: 20px 0 10px 0; max-width: 100%"></textarea></div>
-        <div><button on:click={async () => {await submit(link.id); location.reload()}}>post</button>
-		  <span style="margin-left: 3px; font-size: 13px">private? <input type="checkbox" bind:checked={priv}/></span>
+        <br />
+        <h1 class="secondary" style="font-size: 15px; margin-bottom: 0px">{link.num_comments} Comments</h1>
+
+
+        <div><textarea placeholder="Replies? Comments? Angry tomatos?" bind:value={reply} style="width:100%; height: 100px; margin: 6px 0 10px 0"></textarea></div>
+        <div><a href="javascript:void(0)" on:click={async () => {await submit(link.id); location.reload()}} class="post">Submit</a>
+		  <span style="font-size: 13px; color: var(--blue)">Private? &nbsp; <input type="checkbox" bind:checked={priv}/></span>
 		</div>
         <br />
         {#each link.comments as comment}

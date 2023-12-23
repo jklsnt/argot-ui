@@ -84,3 +84,11 @@ button {
     margin: 0;
     font-size: 18px;
 }
+
+textarea, input {
+    border-radius: 2px;
+}
+
+textarea:focus, input:focus{
+    outline: var(--blue);
+}
