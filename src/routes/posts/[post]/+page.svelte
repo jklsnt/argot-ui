@@ -54,9 +54,11 @@
 		  <span style="font-size: 13px; color: var(--blue)">Private? &nbsp; <input type="checkbox" bind:checked={priv}/></span>
 		</div>
         <br />
-        {#each link.comments as comment}
-            <Comment obj={comment} id={link.id} />
-        {/each}
+        <div style="transform: translateX(-20px);">
+            {#each link.comments as comment}
+                <Comment obj={comment} id={link.id} />
+            {/each}
+        </div>
     {/await}
 
     
