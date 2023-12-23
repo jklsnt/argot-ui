@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    --blue: #133F67;
+    --black: #1F1E1E;
+    --red: #EE4266;
+    --green: #B9E28C;
+    --yellow: #D6D84F;
+}
+
+body {
+    margin: 40px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 300;
+    color: var(--black);
+}
+
+.mono {
+    font-family: 'Roboto Mono', monospace;
+}
+
+a {
+    cursor: pointer !important;
+    position: relative;
+    z-index: 2;
+    cursor: pointer
+
+}

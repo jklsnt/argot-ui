@@ -1,0 +1,42 @@
+.square {
+    background: rgb(3,14,113);
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    margin-right: 10px;
+    transform: translate(1px, 8.5px);
+}
+
+.header-callout {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 23px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 5px;
+}
+
+.header-user {
+    color: var(--blue);
+    font-weight: 400;
+    font-size: 12px;
+    transform: translateY(-4px);
+    display: inline-block;
+}
+
+.menu {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    font-size: 14px;
+    font-style: italic;
+}
+
+.menu > a {
+    font-weight: 900;
+    color: var(--blue);
+    text-decoration: underline;
+    cursor: pointer;
+
+}

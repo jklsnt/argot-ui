@@ -6,36 +6,40 @@
     let message = messages[Math.floor(Math.random() * messages.length)];
 
     import Link from "$lib/components/link.svelte";
-
-    import { page } from '$app/stores'
-    const query = $page.url.searchParams.get('query')
+    import Header from "$lib/components/header.svelte";
 
     let user = {};
-    onMount(async () => {
-        let cookie = getCookie("argot__usr");
-        user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
-    });
-    
-    $: isLogged = user.nick != undefined;
+    let promise = new Promise((res, _) => res([]));
+
     async function fetchPosts() {	   
         const response = await self.fetch(`${server}/posts`, {credentials: 'include'})	  
         return response.json();	
     }
+    onMount(async () => {
+        let cookie = getCookie("argot__usr");
+        user = (cookie && cookie != "") ? JSON.parse(cookie) : {};
+        let promise = fetchPosts();
+    });
+    
+    $: isLogged = user.nick != undefined;
+
     async function logout() {	   
         const response = await self.fetch(`${server}/logout`, {credentials: 'include', method: 'POST'})	  
         deleteCookie("argot__usr");
         return response.json();	
     }
-    let promise = fetchPosts();
+
+    import "./home.css";
     
 </script>    
 
 <div style="">
-    <div><h1 style="display: inline-block">Argot</h1></div>
-    <i>{message} <span style="float:right"><a href="/search">search</a> | <a href="/tags">tags</a> | <a href="/login" on:click={() => {if(isLogged) logout();}}>{isLogged ? "logout" : "login"}</a></span> </i>
-    <hr />
-
-    <div style="display: flex; justify-content: space-between; align-items:center; width: 100%"><h2>Links</h2> <button style="max-height: 25px; cursor: pointer" on:click={() => {window.location.href="/submit"}}>Suwubmit winky-wink!</button></div>
+    <Header />
+    <br />
+    <div class="links-header">
+        <h2>Links</h2>
+        <a style="cursor: pointer" href="javascript:void(0)" class="mono" on:click={() => {window.location.href="/submit"}}>(submit)</a>
+    </div>
 
     {#await promise}
         <p>Loading... :3</p>

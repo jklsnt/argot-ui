@@ -23,8 +23,8 @@
         <span style="text-align: right;"><a href="/users/{obj.author}">{obj.author}</a></span>
         <span style="font-size: 13px;"><a style={"font-size: 13px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")} on:click={async () => {
                 await delete_post();
-                }} href={"javascript:void(0)"}>delete</a> <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>|</span> {#if obj.num_comments != 0}({obj.num_comments}){/if} <a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`}>discuss</a>  | {obj.time}</span>
-    </div>
+            }} href={"javascript:void(0)"}>delete</a> <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>|</span> {#if obj.num_comments != 0}({obj.num_comments}){/if} <a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`}>discuss</a>  | {obj.time}</span>
+                </div>
     <!-- <br><span style="font-size: 13px;">edit</span> -->
     <div>
         {#if obj.private}
