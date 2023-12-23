@@ -13,7 +13,7 @@
     let curtag = "";
     let tags = [];
   
-    import StaticLink from "$lib/components/staticlink.svelte";
+    import Link from "$lib/components/link.svelte";
     import Header from "$lib/components/header.svelte";
 
     async function fetchTags() {
@@ -51,13 +51,15 @@
   <Header />
   <br />
   <h2 class="callout">New Post</h2>
+  <div>
     <ul style="margin-top: 10px; margin-bottom: 10px;">
         <li>Title: <input type="text" bind:value={title} placeholder="Titles are Good" /></li>
         <li>URL (optional): <input type="text" bind:value={url} placeholder="https://example.com" /></li>
         <li>Content (optional): <br><textarea style="width: 400px; max-width: 100%; padding: 7px" placeholder="Why does a woodchuck? Chuck?" bind:value={content}></textarea></li>
-		<li>Private? <input type="checkbox" bind:checked={priv}/></li>
+		<li>Private? &nbsp; <input type="checkbox" bind:checked={priv}/></li>
 		<li><div>
     
+	<button style="float:right" on:click={submit}>Submit!</button>
 	Tags:
 	{#await promise}
       <p>Loading... :3</p>
@@ -74,9 +76,11 @@
 	</div></li>
 	</ul>
 
-	<button on:click={submit}>Submit</button>
-    <br />
+    </div>
+  <br />
+    <hr />
+  <br />
     
-    <StaticLink obj={{title: "​"+title, link:url, author:"you", content: content, time:"just now", tags: tags.map((t) => t.name), private: priv}} />
+    <Link obj={{title: "​"+title, link:url, author:"you", content: content, time:"just now", tags: tags.map((t) => t.name), private: priv}} isStatic />
     
 </div>

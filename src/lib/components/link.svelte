@@ -18,22 +18,31 @@
         window.location.href = "/";
     }
 
-    
-    
+    function getLink(link) {
+        try {
+            return new URL(link).host 
+        }
+        catch (e) {
+            return link
+        }
+    }
+
+    export let isStatic;
+
     import "./link.css";
 </script>
 
 <div class="link">
     <span class="header">
         <a href={obj.link} style="text-decoration: none; cursor:pointer"><span>{obj.title}</span>
-            <span style="opacity: 0.4; color: blue; font-size: 10px"> {obj.link && obj.link.trim() != "" ? (new URL(obj.link)).host : obj.link}</span></a>	
+            <span style="opacity: 0.4; color: blue; font-size: 10px"> {getLink(obj.link)}</span></a>	
     </span>	  
     <div style="float:right; font-size: 1; display: flex; flex-direction: column; gap: 3px; z-index: 10000; position: relative;" class="toolbox">	
         <span style="text-align: right;" class="author"><a href="/users/{obj.author}">{obj.author}</a></span>
         <span style="font-size: 13px;" class="tooltip"><a style={"font-size: 13px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")} on:click={async () => {
                 await delete_post();
-            }} href={"javascript:void(0)"}  class="tool">delete</a> <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>|</span> {#if obj.num_comments != 0}({obj.num_comments}){/if} <a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`} class="tool">discuss</a>  | {obj.time}</span>
-    </div>
+            }} href={"javascript:void(0)"}  class="tool">delete</a> <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>| </span> <span style={"color: red; display: "+(isStatic?"none":"inline")}>{#if obj.num_comments != 0}({obj.num_comments}){/if} <a style="font-size: 13px; min-height: 20px; display: inline-block;z-index: 100000" href={`/posts/${obj.id}`} class="tool">discuss</a>  |</span> {obj.time}</span>
+                </div>
     <div>
         {#if obj.private}
             <span style="margin-right: 3px; font-size: 13px; color: purple;">(private)</span>	
