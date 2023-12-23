@@ -8,18 +8,18 @@
     import { page } from '$app/stores'
     const query = $page.url.searchParams.get('query')
 
-  let newtag = "";
-  
-   async function fetchTags() {	   
-	    const response = await self.fetch(`${server}/tags`, {credentials: 'include'})	  
+    let newtag = "";
+    
+    async function fetchTags() {	   
+        const response = await self.fetch(`${server}/tags`, {credentials: 'include'})	  
         return response.json();	
-   }
-  async function addTag(name) {	   
-    await self.fetch(`${server}/tags/`+name,
-                     {method: "POST",
-                      credentials: 'include',
-                      });				
-   }   
+    }
+    async function addTag(name) {	   
+        await self.fetch(`${server}/tags/${name}`,
+                         {method: "POST",
+                          credentials: 'include',
+                         });				
+    }   
     let promise = fetchTags();
     
 </script>    
@@ -31,15 +31,15 @@
 
     <h2>Tags</h2> 
 
-	<input bind:value={newtag} type="text" style="min-width: 100px; margin-right: 10px;"/> <button on:click={() => {addTag(newtag); location.reload()}}>Add</button><br><br>
-	
+    <input bind:value={newtag} type="text" style="min-width: 100px; margin-right: 10px;"/> <button on:click={async () => {await addTag(newtag); location.reload()}}>Add</button><br><br>
+    
     {#await promise}
         <p>Loading... :3</p>
-      {:then tags}
+    {:then tags}
         {#each tags as tag}
-          <span style="width: 10px; background-color: hotpink; padding: 5px;">
-			<a href="/query?q={tag.name}">{tag.name}</a>
-		  </span><br><br>
+            <span style="width: 10px; background-color: hotpink; padding: 5px;">
+                <a href="/query?q={tag.name}">{tag.name}</a>
+            </span><br><br>
         {/each}
     {/await}
 
