@@ -5,7 +5,7 @@
     let message = messages[Math.floor(Math.random() * messages.length)];
     import Link from "$lib/components/link.svelte";
     import Comment from "$lib/components/comment.svelte";
-
+    import Header from "$lib/components/header.svelte";
     $: post = $page.params.post;
 
     let reply = "";
@@ -32,8 +32,7 @@
 </script>    
 
 <div style="">
-    <h1>Argot</h1>
-    <i>{message}</i>
+   <Header />
 
     <hr />
 

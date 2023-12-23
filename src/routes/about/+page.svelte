@@ -1,3 +1,10 @@
+<script>
+import Header from "$lib/components/header.svelte";
+</script>
+
+<Header />
+<hr />
+  
 <h1> about </h1>
 
 Argot is a private link aggregator (think Hacker News or Lobste.rs clone).

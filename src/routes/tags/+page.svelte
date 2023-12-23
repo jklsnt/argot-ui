@@ -4,6 +4,7 @@
     let message = messages[Math.floor(Math.random() * messages.length)];
 
     import Link from "$lib/components/link.svelte";
+    import Header from "$lib/components/header.svelte";
 
     import { page } from '$app/stores'
     const query = $page.url.searchParams.get('query')
@@ -25,7 +26,7 @@
 </script>    
 
 <div style="">
-    <div><h1 style="display: inline-block">Argot</h1></div>    
+    <Header />
 
     <hr />
 

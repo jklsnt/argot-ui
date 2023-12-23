@@ -4,6 +4,7 @@
     let message = messages[Math.floor(Math.random() * messages.length)];
 
     import Link from "$lib/components/link.svelte";
+    import Header from "$lib/components/header.svelte";
 
     import { page } from '$app/stores'
     const query = $page.url.searchParams.get('q')
@@ -27,18 +28,22 @@
 </script>    
 
 <div style="">
-    <div><h1 style="display: inline-block">Argot</h1></div>
-    <i>{message} <span style="float:right"><a href="/search">search</a> | <a href="/login">login</a></span></i>
+    <Header />
 
     <hr />
-
-    <div style="display: flex; justify-content: space-between; align-items:center"><h2>Links</h2> <button style="max-height: 25px; cursor: pointer" on:click={() => {window.location.href="/submit"}}>UwU~! Suwubmit winky-wink!</button></div>
-
+	<br />
+    <div class="links-header">
+      <h2>Links</h2>
+	  <a style="cursor: pointer; float:right" href="/submit" class="mono">(submit)</a>
+    </div>
+    <hr />
+    
     {#await promise}
         <p>Loading... :3</p>
     {:then links}
         {#each links as link}
-            <Link obj={link} />
+          <Link obj={link} />
+		  <hr />
         {/each}
     {/await}
 

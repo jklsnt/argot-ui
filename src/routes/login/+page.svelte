@@ -5,7 +5,8 @@
     let message = messages[Math.floor(Math.random() * messages.length)];
 
     import Link from "$lib/components/link.svelte";
-
+    import Header from "$lib/components/header.svelte";
+  
     let nick = "";
     let password = "";
     let bio = "";
@@ -56,27 +57,27 @@
 </script>    
 
 <div style="">
-    <div><h1 style="display: inline-block">Argot</h1></div>
-    <i>{message}</i>
+    <Header />
 
     <hr />
 
+	<h2 style="margin-bottom: 10px; margin-top: 10px;"> login </h2>
     <ul>
-        <li>UrName (* ω): <input type="text" bind:value={nick} /></li>
-        <li>NyuzzlePaws (*≧▽≦):: <input type="password" bind:value={password} /></li>
+        <li>nick: <input type="text" bind:value={nick} /></li>
+        <li>password: <input type="password" bind:value={password} /></li>
     </ul>
 
-    <button on:click={submit}>Nyaa~! The usew entews a kwaii wo-wld, login with nya-joy! (* ω) Nyaa~ (∩^ω^∩)</button>
+    <button style="margin-bottom: 10px;" on:click={submit}>log in</button>	
 
     <hr />
 
-	<p> No account? Sign up! </p>	
+	<h2 style="margin-bottom: 10px; margin-top: 10px;"> signup </h2>
 	<ul>
-        <li>Nick: <input type="text" bind:value={nick} /></li>
-        <li>Password: <input type="password" bind:value={password} /></li>
-		<li>Email: <input type="text" bind:value={email} /></li>
-		<li>Bio<br> <textarea bind:value={bio} style="width: 400px; height: 100px;"></textarea></li>
+        <li>nick: <input type="text" bind:value={nick} /></li>
+        <li>password: <input type="password" bind:value={password} /></li>
+		<li>email (optional): <input type="text" bind:value={email} /></li>
+		<li>bio (optional)<br> <textarea bind:value={bio} style="width: 400px; height: 100px;"></textarea></li>
     </ul>
-	<button on:click={sign_submit}>Sign up</button>
+	<button on:click={sign_submit}>sign up</button>
 	
 </div>

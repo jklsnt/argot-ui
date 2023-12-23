@@ -5,7 +5,7 @@
     let message = messages[Math.floor(Math.random() * messages.length)];
     import Link from "$lib/components/link.svelte";
     import StaticComment from "$lib/components/staticcomment.svelte";
-
+    import Header from "$lib/components/header.svelte";
     $: user = $page.params.user;
 
     let reply = "";
@@ -22,23 +22,23 @@
 </script>    
 
 <div style="">
-    <h1>Argot</h1>
-    <i>{message}</i>
+    <Header />
 
     <hr />
+	<br>
 
     {#await promise}
         <p>Loading... :3</p>
     {:then user}
-	  <h3>{user.nick}</h3>
+	  <h2>{user.nick}</h2>
 	  <p>{user.bio}</p>
 
 	  <br>
-	  <h4> Posts </h4>
+	  <h3> Posts </h3>
       {#each user.posts as link}
         <Link obj={link}/>
       {/each}
-	  <h4> Comments </h4>
+	  <h3> Comments </h3>
 
       {#each user.comments as comment}
         <StaticComment obj={comment} id={comment.id} />
