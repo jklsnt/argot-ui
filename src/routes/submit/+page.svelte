@@ -37,8 +37,8 @@
                               title: title,
                               link: url,
                               content: content,
-							  private: priv,
-							  tags: tags.map((t) => t.id)
+                              private: priv,
+                              tags: tags.map(t => t.id)
                           })});
         window.location.href = "/";      
     }

@@ -17,7 +17,7 @@
 <div class="link">
     <span class="header">
         <a href={obj.link} style="text-decoration: none; cursor:pointer"><span>{obj.title}</span>
-          <span style="opacity: 0.4; color: blue; font-size: 10px">
+          <span style="opacity: 0.4; color: var(--bluer); font-size: 10px">
 			{obj.link && obj.link.trim() != "" ? getLink(obj.link) : obj.link}
 		</span></a>	
     </span>	  

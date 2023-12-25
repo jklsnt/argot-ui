@@ -35,7 +35,7 @@
 <div class="link">
     <span class="header">
         <a href={obj.link} style="text-decoration: none; cursor:pointer"><span>{obj.title}</span>
-            <span style="opacity: 0.4; color: blue; font-size: 10px"> {getLink(obj.link)}</span></a>	
+            <span style="opacity: 0.4; color: var(--bluer); font-size: 10px"> {getLink(obj.link)}</span></a>	
     </span>	  
     <div style="float:right; font-size: 1; display: flex; flex-direction: column; gap: 3px; z-index: 10000; position: relative;" class="toolbox">	
         <span style="text-align: right;" class="author"><a href="/users/{obj.author}">{obj.author}</a></span>
@@ -45,7 +45,7 @@
                 </div>
     <div>
         {#if obj.private}
-            <span style="margin-right: 3px; font-size: 13px; color: purple;">(private)</span>	
+            <span style="margin-right: 3px; font-size: 13px; color: var(--purple);">(private)</span>	
         {/if}
 
 {#if !obj.private && obj.tags.length == 0 && obj.content == ""}
@@ -53,7 +53,7 @@
 {/if}
 
 {#each obj.tags as tag}
-    <span style="margin-right: 8px; font-size: 13px; color: blue; max-width: 100%; display: inline-block">
+    <span style="margin-right: 8px; font-size: 13px; color: var(--bluer); max-width: 100%; display: inline-block">
         <a href="/query?q={tag}">{tag}</a>
     </span>
 {/each}

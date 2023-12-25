@@ -3,18 +3,41 @@
 @tailwind utilities;
 
 * {
+    /*@apply dark:bg-black;*/
+    background-color: var(--bg);
+}
+
+:root {
     --blue: #133F67;
+    --bluer: blue;
     --black: #1F1E1E;
     --red: #EE4266;
     --green: #74b031;
     --yellow: #D6D84F;
+    --purple: purple;
+
+    --bg: #FEFEFE;
+    --text: #1F1E1E;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /*--bg: #15171a;*/
+        --bg: #1D1D21;
+        --text: #E4E4E4;
+        --blue: #6FB1EF;
+        --bluer: #79BDFD;
+
+        --purple: purple; /*todo*/
+    }
 }
 
 body {
     margin: 40px;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: var(--black);
+    color: var(--text);
 }
 
 .mono {

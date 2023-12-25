@@ -3,7 +3,8 @@
     import Footer from "$lib/components/footer.svelte";
 </script>
 
-<slot />
+<div class="">
+    <slot />
+</div>
 
 <Footer />
- 
