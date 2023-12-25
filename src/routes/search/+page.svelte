@@ -37,7 +37,11 @@
     <Header />
     <br />
     <h3 class="callout" style="padding-bottom: 5px">Search</h3>
-    <input bind:value={search} type="text" style="min-width: 400px; margin-right: 10px;"/> <button on:click={() => {fetchPosts(search); fetchComments(search);}}>search</button>
+    <input 
+        bind:value={search}
+        on:keydown={e => {e.keyCode == 13 && (() => {fetchPosts(search); fetchComments(search)})()}}
+        type="text" style="min-width: 400px; margin-right: 10px;"/>
+        <button on:click={() => {fetchPosts(search); fetchComments(search);}}>search</button>
     <br />
 	<br />
 

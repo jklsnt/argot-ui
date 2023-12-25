@@ -20,17 +20,15 @@
     --text: #1F1E1E;
 }
 
+/*TODO these colors are _temp_*/
+[data-theme="dark"] {
+    /*--bg: #15171a;*/
+    --bg: #1D1D21;
+    --text: #E4E4E4;
+    --blue: #6FB1EF;
+    --bluer: #79BDFD;
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        /*--bg: #15171a;*/
-        --bg: #1D1D21;
-        --text: #E4E4E4;
-        --blue: #6FB1EF;
-        --bluer: #79BDFD;
-
-        --purple: purple; /*todo*/
-    }
+    --purple: purple; /*todo*/
 }
 
 body {
@@ -38,6 +36,7 @@ body {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     color: var(--text);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .mono {
@@ -49,6 +48,7 @@ a {
     position: relative;
     z-index: 2;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 textarea,input {
