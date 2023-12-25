@@ -2,6 +2,7 @@
     export let obj;
     export let id;
     import {getCookie} from "$lib/cookies.js";
+    import {date_str} from "$lib/utils.js";
 
     import {marked} from "marked";
     import DOMPurify from "dompurify";
@@ -39,19 +40,25 @@
                           body: JSON.stringify({post: id, parent: obj.id, content:reply, private:priv})});
     }
 
+    function copy(comment_id) {
+	    navigator.clipboard.writeText(location.hostname+"/posts/"+id+"#"+comment_id);
+    }  
+  
     import "./comment.css";
 </script>
 
+<section id={obj.id}>
 <div style="padding: 0 0 0 20px; min-width: 200px">
     <div style="font-size: 12px; margin:0; padding:0;" class="tooltip"><a  class="author" href="/users/{obj.author}">{obj.author}</a>
         {#if obj.private}
             <span style="font-size: 13px; color: purple;">(private)</span> 
         {/if}
-        | {obj.time} {#if isLogged}| <a href="javascript:void(0);" on:click={()=>{replying=true}}  class="tool">reply</a>{/if}
+        | {date_str(obj.time)} {#if isLogged}| <a href="javascript:void(0);" on:click={()=>{replying=true}}  class="tool">reply</a>{/if}
             <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>| </span>
             <a style={"font-size: 13px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")}  class="tool" on:click={async () => {
                 await delete_comment();
-                }} href={"javascript:void(0)"}>delete</a>
+              }} href={"javascript:void(0)"}>delete</a> |
+			<a class="tool" on:click={copy(obj.id)}>copy link</a>
     </div>
     <span style="font-size: 13px;">	
         <!-- <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}> -->
@@ -79,3 +86,4 @@
     {/each}
 </div>
 </div>    
+</section>
