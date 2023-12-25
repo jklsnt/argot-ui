@@ -40,6 +40,11 @@
     }
 
     $: promise = fetchPost(post);
+    onMount(() => {
+      if(window.location.hash) {
+      promise.then(()=> document.getElementById(window.location.hash.slice(1)).scrollIntoView())
+      }
+    });
 
     import "./post.css";
 </script>    

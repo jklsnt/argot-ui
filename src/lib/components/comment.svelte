@@ -55,7 +55,7 @@
         {/if}
         | {date_str(obj.time)} {#if isLogged}| <a href="javascript:void(0);" on:click={()=>{replying=true}}  class="tool">reply</a>{/if}
             <span style={"display:"+(user.nick == obj.author ? "inline-block;":"none;")}>| </span>
-            <a style={"font-size: 13px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")}  class="tool" on:click={async () => {
+            <a style={"font-size: 12px; min-height: 20px; z-index: 100000; display:"+(user.nick == obj.author ? "inline-block;":"none;")}  class="tool" on:click={async () => {
                 await delete_comment();
               }} href={"javascript:void(0)"}>delete</a> |
 			<a class="tool" on:click={copy(obj.id)}>copy link</a>
