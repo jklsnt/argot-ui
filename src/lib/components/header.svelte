@@ -34,8 +34,11 @@
     <div class="header-callout">
         <a href="/"><div style="display: inline-block;" class="square">&nbsp;</div><h1 style="display: inline-block">Argot</h1></a>
     </div>
-        <ThemeToggle />
+        
+    <ThemeToggle />
     <div><a class="header-user" href={!isLogged ?"javascript:void(0)":`/inbox`}>{isLogged?`${user.nick}`:"unauthenticated"}
-  {#await promise}{:then inbox}{#if inbox.size != 0}({inbox.size}){/if}{/await}</a>
+  {#await promise}{:then inbox}{#if inbox.size != 0}({inbox.size}){/if}{/await} </a>
+
+    
 	  <span class="menu" style="float:right; "><a href="/search">search</a> | <a href="/tags">tags</a> | <a href="/login" on:click={() => {if(isLogged) logout();}}>{isLogged ? "logout" : "login"}</a></span> </div>
 </div>

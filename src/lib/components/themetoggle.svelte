@@ -29,24 +29,28 @@
 
 
 
-<div id="wrapper">
     <input checked={darkMode} on:click={handleSwitchDarkMode} type="checkbox" id="theme-toggle" />
     <label for="theme-toggle" />
-</div>
 
 <style lang="postcss">
-    #wrapper {
-        position: absolute;
-        top: -6px;
-        right: -75px;
-    }
+    /* #wrapper { */
+    /*     position: absolute; */
+    /*     top: -6px; */
+    /*     right: -75px; */
+    /*     width: 0; */
+    /*     height: 0; */
+    /* } */
 
     #theme-toggle {
         @apply invisible;
+        position: absolute;
     }
 
     #theme-toggle + label {
-        @apply inline-block cursor-pointer h-6 w-6 absolute top-6 right-24 rounded-full duration-300 content-[''];
+        @apply inline-block cursor-pointer h-6 w-6 absolute rounded-full duration-300 content-[''];
+        transform: scale(0.5);
+        top: 76px;
+        left: 100px;
     }
 
     #theme-toggle:not(:checked) + label {
@@ -55,7 +59,7 @@
 
     #theme-toggle:checked + label {
         @apply bg-transparent;
-        box-shadow: inset -9px -8px 0px 0px #ddd;
+        box-shadow: inset -5px -3px 0px 0px #ddd;
         /*box-shadow: inset -18px -16px 1px 1px #ddd;*/
     }
 </style>
