@@ -41,7 +41,10 @@
     }
 
     function copy(comment_id) {
-	    navigator.clipboard.writeText(location.hostname+"/posts/"+id+"#"+comment_id);
+	  navigator.clipboard.writeText(
+		location.protocol+'//'+location.hostname+(location.port ? ":"+location.port : "")+
+		  "/posts/"+id+"#"+comment_id
+	  );
     }  
   
     import "./comment.css";
