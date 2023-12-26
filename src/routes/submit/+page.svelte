@@ -81,6 +81,6 @@
     <hr />
   <br />
     
-    <Link obj={{title: "​"+title, link:url, author:"you", content: content, time:"just now", tags: tags.map((t) => t.name), private: priv}} isStatic />
+    <Link obj={{title: "​"+title, link:url, author:"you", content: content, time: Date.now() / 1000, tags: tags.map((t) => t.name), private: priv}} isStatic />
     
 </div>
