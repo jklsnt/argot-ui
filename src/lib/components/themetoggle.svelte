@@ -46,7 +46,7 @@
     }
 
     #theme-toggle + label {
-        @apply inline-block cursor-pointer h-6 w-6 absolute top-6 right-24 rounded-full duration-300 content-[''];
+      @apply inline-block cursor-pointer h-5 w-5 absolute top-14 right-28 rounded-full duration-300 content-[''];
     }
 
     #theme-toggle:not(:checked) + label {
