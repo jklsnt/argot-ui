@@ -15,7 +15,7 @@
         {#if obj.private}
             <span style="font-size: 13px; color: purple;">(private)</span> 
         {/if}
-        | {date_str((obj.time)} | <a href="/posts/{obj.post_id}"  class="tool">context</a> {#if markread} | <a href="javascript:void(0)" on:click={() => markread()} class="tool">mark as read</a>{/if}
+        | {date_str(obj.time)} | <a href="/posts/{obj.post_id}"  class="tool">context</a> {#if markread} | <a href="javascript:void(0)" on:click={() => markread()} class="tool">mark as read</a>{/if}
         </div>
 </div>
 
