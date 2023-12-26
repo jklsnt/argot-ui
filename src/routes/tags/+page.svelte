@@ -39,7 +39,7 @@
     {:then tags}
         {#each tags as tag}
             <span style="width: 10px; background-color: #d9d9d9; padding: 5px; border-radius: 5px;">
-                <a href="/query?q={tag.name}">{tag.name}</a>
+                <a href="/query?q={tag.name}" style="background-color: #d9d9d9">{tag.name}</a>
             </span><br><br>
         {/each}
     {/await}
