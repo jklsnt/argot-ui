@@ -28,6 +28,16 @@
         }
     }
 
+    function getExtension(link) {
+        // Turns out regex gets very messy and isn't very accurate, so
+        // this method just looks for specific extensions like pdf
+        let extensions = [".pdf", ".zip"];
+        for (let ext of extensions) {
+            if (link.endsWith(ext)) return ext.slice(1);
+        }
+        return "";
+    }
+
     export let isStatic;
 
     import "./link.css";
@@ -36,7 +46,10 @@
 <div class="link">
     <span class="header">
         <a href={obj.link} style="text-decoration: none; cursor:pointer"><span>{obj.title}</span>
-            <span style="opacity: 0.4; color: var(--bluer); font-size: 10px"> {getLink(obj.link)}</span></a>	
+            {#if getExtension(obj.link) != ""}
+                <span style=""> ({getExtension(obj.link)}) </span>
+            {/if}
+            <span style="opacity: 0.4; color: var(--bluer); font-size: 10px"> {getLink(obj.link)} </span></a>	
     </span>	  
     <div style="float:right; font-size: 1; display: flex; flex-direction: column; gap: 3px; z-index: 10000; position: relative;" class="toolbox">	
         <span style="text-align: right;" class="author"><a href="/users/{obj.author}">{obj.author}</a></span>
